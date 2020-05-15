@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1>Quote Table from Breaking Bad </h1>
+    <div class="row col-md-10 table-responsive">
+        <table th:class="table">
+
+            <thead>
+            <tr>
+                <th> Author </th>
+                <th> Quote </th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr th:if="${quotes.isEmpty()}">
+                <td colspan="2"> No Quotes Available </td>
+            </tr>
+            <tr th:each="quote, rowStat: ${quotes}" >
+                <td><span th:text="${quote.getAuthor()}"> Author </span></td>
+                <td><span th:text="${quote.getQuote()}"> Quote </span> </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
